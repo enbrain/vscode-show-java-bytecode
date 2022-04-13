@@ -1,5 +1,6 @@
 import * as child_process from 'child_process';
 import * as vscode from 'vscode';
+import Module = require('module');
 
 const JAVA_EXECUTABLE = 'java';
 
@@ -26,8 +27,8 @@ export default abstract class JavaBytecodeContentProvider implements vscode.Text
 
             process.on('close', code => {
                 if (code === 0) {
-                    const header = '// Disassembled with ' + [JAVA_EXECUTABLE, ...args].join(' ') + '\n\n';
-                    resolve(stdout);
+                    const header = `// Disassembled with Show Java Bytecode\n//   ${[JAVA_EXECUTABLE, ...args].join(' ')}\n`;
+                    resolve(header + '\n' + stdout);
                 } else {
                     resolve("Failed to disassemble!\nstderr: " + stderr);
                 }

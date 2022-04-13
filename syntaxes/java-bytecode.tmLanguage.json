@@ -1,0 +1,87 @@
+{
+    "scopeName": "source.java-bytecode",
+    "patterns": [
+        {
+            "include": "#comment"
+        },
+        {
+            "include": "#keyword"
+        },
+        {
+            "include": "#controlInstruction"
+        },
+        {
+            "include": "#string"
+        },
+        {
+            "include": "#type"
+        },
+        {
+            "include": "#numeric"
+        },
+        {
+            "include": "#classDeclaration"
+        },
+        {
+            "include": "#methodDeclaration"
+        },
+        {
+            "include": "#fieldDeclaration"
+        },
+        {
+            "include": "#localVariable"
+        },
+        {
+            "include": "#classUsage"
+        },
+        {
+            "include": "#methodUsage"
+        },
+        {
+            "include": "#fieldUsage"
+        }
+    ],
+    "repository": {
+        "comment": {
+            "match": "// .*",
+            "name": "comment.line"
+        },
+        "keyword": {
+            "match": "(?<![a-zA-Z-0-9_])(abstract|class|default|enum|extends|final|implements|interface|private|protected|public|static|synthetic|this)(?![a-zA-Z-0-9_])",
+            "name": "keyword.letter"
+        },
+        "controlInstruction": {
+            "match": "(?<![a-zA-Z-0-9_])((A|D|F|I|L|)RETURN|GOTO(_W)?|IF_ACMP(EQ|NE)|IF_ICMP(EQ|NE|LT|GE|GT|LE)|IF(EQ|NE|LT|GE|GT|LE)|IF(NON)?NULL|(LOOKUP|TABLE)SWITCH|RET)(?![a-zA-Z-0-9_])",
+            "name": "keyword.control"
+        },
+        "string": {
+            "begin": "\"",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.begin"
+                }
+            },
+            "end": "\"",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.string.end"
+                }
+            },
+            "name": "string.quoted",
+            "patterns": [
+                {
+                    "match": "\\\\.",
+                    "name": "constant.character.escape"
+                }
+            ]
+        },
+        "numeric": {
+            "match": "(?<![a-zA-Z])[0-9]+",
+            "name": "constant.numeric"
+        },
+        "localVariable": {
+            "match": "(?<=LOCALVARIABLE )[a-zA-Z0-9_$]+",
+            "name": "variable"
+        }
+    }
+}

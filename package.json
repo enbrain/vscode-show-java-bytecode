@@ -39,7 +39,27 @@
 					"group": "navigation"
 				}
 			]
-		}
+		},
+		"languages": [
+			{
+				"id": "java-bytecode",
+				"aliases": [
+					"Java Bytecode"
+				],
+				"extensions": [
+					".class"
+				],
+				"firstLine": "^// Disassembled with Show Java Bytecode$",
+				"configuration": "./language-configuration.json"
+			}
+		],
+		"grammars": [
+			{
+				"language": "java-bytecode",
+				"scopeName": "source.java-bytecode",
+				"path": "./syntaxes/java-bytecode.tmLanguage.json"
+			}
+		]
 	},
 	"scripts": {
 		"vscode:prepublish": "yarn run compile",

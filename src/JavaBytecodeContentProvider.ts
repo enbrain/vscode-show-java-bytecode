@@ -10,6 +10,7 @@ export default abstract class JavaBytecodeContentProvider implements vscode.Text
 
     provideTextDocumentContent(uri: vscode.Uri, token: vscode.CancellationToken): vscode.ProviderResult<string> {
         return new Promise((resolve, reject) => {
+            uri = uri.with({ path: uri.path.replace('.java-bytecode', '') });
             const args = ['-jar', this.dumperUri.fsPath, ...this.getArgs(uri)];
 
             const process = child_process.execFile(JAVA_EXECUTABLE, args);

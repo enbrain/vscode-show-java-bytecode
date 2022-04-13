@@ -47,7 +47,7 @@
 					"Java Bytecode"
 				],
 				"extensions": [
-					".class"
+					".java-bytecode"
 				],
 				"firstLine": "^// Disassembled with Show Java Bytecode$",
 				"configuration": "./language-configuration.json"

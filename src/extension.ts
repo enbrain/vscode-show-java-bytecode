@@ -12,7 +12,10 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.workspace.registerTextDocumentContentProvider('file-java-bytecode', fileJavaBytecodeProvider),
 		vscode.workspace.registerTextDocumentContentProvider('jdt-java-bytecode', jdtJavaBytecodeProvider),
 		vscode.commands.registerCommand('show-java-bytecode.showBytecode', async (fileUri: vscode.Uri) => {
-			const bytecodeUri = fileUri.with({ scheme: `${fileUri.scheme}-java-bytecode` });
+			const bytecodeUri = fileUri.with({
+				scheme: `${fileUri.scheme}-java-bytecode`,
+				path: `${fileUri.path}.java-bytecode`
+			});
 			await vscode.window.showTextDocument(bytecodeUri, { viewColumn: vscode.ViewColumn.Beside });
 		})
 	);

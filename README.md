@@ -1,5 +1,5 @@
 # Show Java Bytecode
-A Java bytecode viewer for VSCode.
+A VSCode extension that adds Java bytecode viewer.
 
 ## Example
 ![Example](images/example.png)

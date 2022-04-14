@@ -47,11 +47,11 @@
             "name": "comment.line"
         },
         "keyword": {
-            "match": "(?<![a-zA-Z-0-9_])(abstract|class|default|enum|extends|final|implements|interface|private|protected|public|static|synthetic|this)(?![a-zA-Z-0-9_])",
+            "match": "(?<![a-zA-Z-0-9_$])(abstract|class|default|enum|extends|final|implements|interface|private|protected|public|static|synthetic|this)(?![a-zA-Z-0-9_$])",
             "name": "keyword.letter"
         },
         "controlInstruction": {
-            "match": "(?<![a-zA-Z-0-9_])((A|D|F|I|L|)RETURN|GOTO(_W)?|IF_ACMP(EQ|NE)|IF_ICMP(EQ|NE|LT|GE|GT|LE)|IF(EQ|NE|LT|GE|GT|LE)|IF(NON)?NULL|(LOOKUP|TABLE)SWITCH|RET)(?![a-zA-Z-0-9_])",
+            "match": "(?<![a-zA-Z-0-9_$])((A|D|F|I|L|)RETURN|GOTO(_W)?|IF_ACMP(EQ|NE)|IF_ICMP(EQ|NE|LT|GE|GT|LE)|IF(EQ|NE|LT|GE|GT|LE)|IF(NON)?NULL|(LOOKUP|TABLE)SWITCH|RET)(?![a-zA-Z-0-9_$])",
             "name": "keyword.control"
         },
         "string": {
@@ -76,7 +76,7 @@
             ]
         },
         "numeric": {
-            "match": "(?<![a-zA-Z])[0-9]+",
+            "match": "(?<![a-zA-Z0-9_$])[0-9]+",
             "name": "constant.numeric"
         },
         "localVariable": {
